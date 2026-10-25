@@ -1,0 +1,39 @@
+// Same architecture as architecture.mmd, in Graphviz form (rendered to architecture.png with `dot`).
+digraph G {
+  rankdir=LR; fontname="Helvetica"; fontsize=11; nodesep=0.25; ranksep=0.45;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, fillcolor="#f4f6f8", color="#6b7b8c"];
+  edge [color="#6b7b8c", arrowsize=0.7];
+
+  subgraph cluster_src { label="1. Five source tables (CSV, read-only)"; style="rounded"; color="#8aa0b4"; fontsize=11;
+    C [label="customers.csv\n10,000 rows"]; L [label="loan_accounts.csv\n14,685 rows · target_default"];
+    B [label="bureau_credit.csv\n22,979 rows"]; R [label="repayment_history.csv\n176,220 rows"]; K [label="collections_events.csv\n8,635 rows"]; }
+  subgraph cluster_ing { label="2. Ingestion & validation\nsrc/ingestion.py · pandas"; style="rounded"; color="#8aa0b4";
+    I [label="Load + parse dates\nPK uniqueness · FK integrity\ncoverage checks"]; }
+  subgraph cluster_cln { label="3. Cleaning & feature engineering\nsrc/cleaning.py · src/features.py"; style="rounded"; color="#8aa0b4";
+    X1 [label="Label harmonisation · missing flags\nimplausible dates · issue log"];
+    X2 [label="Aggregate to join grain\nbureau→customer · repayment→account\ncollections→account"];
+    X3 [label="Join to loan grain\nrow count asserted at every step"]; }
+  subgraph cluster_ana { label="4. Portfolio analytics & model training"; style="rounded"; color="#8aa0b4";
+    A1 [label="Profiling · cross-cuts · vintage trends\n5 insights\nsrc/analytics.py · matplotlib"];
+    A2 [label="Customer-grouped split + OOT check\nLogistic regression · LightGBM\nAUC / KS / Gini · SHAP\nsrc/modeling.py · scikit-learn · lightgbm · shap"]; }
+  subgraph cluster_sto { label="5. Scoring & storage (local files)"; style="rounded"; color="#8aa0b4";
+    S1 [shape=cylinder, label="data/processed/\nloan_level_dataset.parquet\nscored_loans.parquet\nshap_values.parquet"];
+    S2 [shape=cylinder, label="models/\nlightgbm.joblib · logistic_regression.joblib\nmodel_metadata.json"];
+    S3 [shape=cylinder, label="reports/\ndata quality · findings\nmodel evaluation · assumptions"]; }
+  subgraph cluster_dsh { label="6. Interactive dashboard\napp/dashboard.py · Streamlit · Plotly"; style="rounded"; color="#8aa0b4";
+    D3 [label="Sidebar filters\nregion · income · employment\nloan type · risk segment", fillcolor="#e9eef3"];
+    D1 [label="Portfolio view\nKPIs · risk segments · dimensions\ntrends · cross-cut · insights"];
+    D2 [label="Account view\nPD estimate · risk segment\nSHAP drivers · repayment · bureau"]; }
+  subgraph cluster_ai { label="7. Embedded AI feature\nsrc/anomaly.py · rule engine (in-dashboard page)"; style="rounded"; color="#b23a48";
+    AI1 [label="Anomaly detection R1-R4\nown-history & peer comparison", fillcolor="#fbeeee"];
+    AI2 [label="Evidence per flag · review queue\nhuman decision before action", fillcolor="#fbeeee"]; }
+  T [label="tests/ · pytest\n12 tests: transforms, joins, metrics,\nanomaly rules, dashboard", fillcolor="#eef7ee", color="#5a8a5a"];
+
+  {C L B R K} -> I -> X1 -> X2 -> X3;
+  X3 -> A1; X3 -> A2; X3 -> S1;
+  A1 -> S3; A2 -> S1; A2 -> S2; A2 -> S3;
+  S1 -> D1; S1 -> D2; S2 -> D2 [style=dashed, label="metadata"]; S3 -> D1 [style=dashed, label="insights text"];
+  D3 -> D1; D3 -> D2;
+  S1 -> AI1 -> AI2; AI1 -> D2 [style=dashed, label="flags shown"];
+  T -> X3 [style=dotted, label="verifies"]; T -> D1 [style=dotted, label="verifies"];
+}

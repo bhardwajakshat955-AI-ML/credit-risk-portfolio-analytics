@@ -1,0 +1,318 @@
+{
+  "split": {
+    "train_loans": 11737,
+    "test_loans": 2948,
+    "train_customers": 8000,
+    "test_customers": 2000,
+    "train_default_rate": 0.16119962511715089,
+    "test_default_rate": 0.16010854816824965,
+    "customer_overlap": 0
+  },
+  "cv": {
+    "logistic_C": {
+      "0.01": 0.6758306102849336,
+      "0.1": 0.6721711524587354,
+      "1.0": 0.671247329761486
+    },
+    "logistic_best_C": 0.01,
+    "lightgbm": {
+      "leaves=3,trees=150": 0.6741506531710695,
+      "leaves=3,trees=300": 0.6763722851609227,
+      "leaves=4,trees=150": 0.6755694371459147,
+      "leaves=4,trees=300": 0.6756822590176885,
+      "leaves=7,trees=150": 0.6750879651693932,
+      "leaves=7,trees=300": 0.6732791542914731,
+      "leaves=15,trees=150": 0.6728711492107174,
+      "leaves=15,trees=300": 0.6671529180871321
+    },
+    "lightgbm_best": "leaves=3,trees=300"
+  },
+  "test_metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.6841517551545686,
+      "gini": 0.3683035103091372,
+      "ks": 0.27631705046411653,
+      "brier": 0.22338078077090084
+    },
+    "lightgbm": {
+      "roc_auc": 0.6839861826072671,
+      "gini": 0.36797236521453414,
+      "ks": 0.270998192820569,
+      "brier": 0.12553567103355165
+    }
+  },
+  "train_metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.6936207838838143,
+      "gini": 0.38724156776762864,
+      "ks": 0.2917636151038776,
+      "brier": 0.21995795663473455
+    },
+    "lightgbm": {
+      "roc_auc": 0.7102591757870674,
+      "gini": 0.42051835157413486,
+      "ks": 0.3162648965948953,
+      "brier": 0.12311195104209921
+    }
+  },
+  "risk_segment_cutoffs": {
+    "Medium": 0.18046457339121247,
+    "High": 0.27836642825159613
+  },
+  "threshold_metrics": {
+    "lightgbm_high_cutoff": {
+      "threshold": 0.27836642825159613,
+      "flagged_share": 0.10244233378561737,
+      "precision": 0.36423841059602646,
+      "recall": 0.2330508474576271,
+      "tn": 2284,
+      "fp": 192,
+      "fn": 362,
+      "tp": 110
+    },
+    "lightgbm_medium_cutoff": {
+      "threshold": 0.18046457339121247,
+      "flagged_share": 0.30223880597014924,
+      "precision": 0.27048260381593714,
+      "recall": 0.510593220338983,
+      "tn": 1826,
+      "fp": 650,
+      "fn": 231,
+      "tp": 241
+    },
+    "logistic_top10pct": {
+      "threshold": 0.6747531146564174,
+      "flagged_share": 0.10244233378561737,
+      "precision": 0.3576158940397351,
+      "recall": 0.2288135593220339,
+      "tn": 2282,
+      "fp": 194,
+      "fn": 364,
+      "tp": 108
+    },
+    "logistic_top30pct": {
+      "threshold": 0.5382557742446984,
+      "flagged_share": 0.30427408412483037,
+      "precision": 0.2787068004459309,
+      "recall": 0.5296610169491526,
+      "tn": 1829,
+      "fp": 647,
+      "fn": 222,
+      "tp": 250
+    }
+  },
+  "segment_default_rate_test": {
+    "Low": {
+      "loans": 2057,
+      "default_rate": 0.11229946524064172
+    },
+    "Medium": {
+      "loans": 589,
+      "default_rate": 0.22241086587436332
+    },
+    "High": {
+      "loans": 302,
+      "default_rate": 0.36423841059602646
+    }
+  },
+  "calibration_lightgbm": {
+    "0": {
+      "loans": 295,
+      "observed_default_rate": 0.061016949152542375,
+      "mean_predicted": 0.06619103350115935
+    },
+    "1": {
+      "loans": 295,
+      "observed_default_rate": 0.061016949152542375,
+      "mean_predicted": 0.08598922006960075
+    },
+    "2": {
+      "loans": 295,
+      "observed_default_rate": 0.08813559322033898,
+      "mean_predicted": 0.0997257031074947
+    },
+    "3": {
+      "loans": 294,
+      "observed_default_rate": 0.12244897959183673,
+      "mean_predicted": 0.11182505609556938
+    },
+    "4": {
+      "loans": 295,
+      "observed_default_rate": 0.12203389830508475,
+      "mean_predicted": 0.1254764528119766
+    },
+    "5": {
+      "loans": 295,
+      "observed_default_rate": 0.14576271186440679,
+      "mean_predicted": 0.14277171670416103
+    },
+    "6": {
+      "loans": 294,
+      "observed_default_rate": 0.1870748299319728,
+      "mean_predicted": 0.16712084322399476
+    },
+    "7": {
+      "loans": 295,
+      "observed_default_rate": 0.1864406779661017,
+      "mean_predicted": 0.19793899683210595
+    },
+    "8": {
+      "loans": 295,
+      "observed_default_rate": 0.2711864406779661,
+      "mean_predicted": 0.24682239506876408
+    },
+    "9": {
+      "loans": 295,
+      "observed_default_rate": 0.3559322033898305,
+      "mean_predicted": 0.37075185163515867
+    }
+  },
+  "out_of_time_2023": {
+    "train_loans": 12215,
+    "test_loans": 2470,
+    "lightgbm": {
+      "roc_auc": 0.6906559990590413,
+      "gini": 0.3813119981180826,
+      "ks": 0.2986994058919867,
+      "brier": 0.11991201333567636
+    },
+    "logistic_regression": {
+      "roc_auc": 0.6957238797669593,
+      "gini": 0.3914477595339185,
+      "ks": 0.31165037248411814,
+      "brier": 0.22060535003409507
+    }
+  },
+  "sensitivity_lightgbm": {
+    "application_only": {
+      "roc_auc": 0.651872381643438,
+      "gini": 0.30374476328687594,
+      "ks": 0.24559500013690755,
+      "brier": 0.12924304501476652
+    },
+    "no_bureau": {
+      "roc_auc": 0.6783977882588101,
+      "gini": 0.3567955765176203,
+      "ks": 0.2785794474411982,
+      "brier": 0.12611868473357724
+    },
+    "no_repayment": {
+      "roc_auc": 0.662932371101558,
+      "gini": 0.325864742203116,
+      "ks": 0.265080364721667,
+      "brier": 0.1278761225623163
+    },
+    "time_filtered_bureau": {
+      "roc_auc": 0.6828113448426932,
+      "gini": 0.36562268968538647,
+      "ks": 0.2719976178089318,
+      "brier": 0.12563452197542024
+    }
+  },
+  "top_features_gain": {
+    "annual_income": 0.209,
+    "rep_n_delinquent": 0.1431,
+    "years_employed": 0.1133,
+    "age": 0.0865,
+    "bureau_mean_dpd": 0.0861,
+    "rep_mean_dpd": 0.0637,
+    "loan_to_income": 0.0492,
+    "rep_max_dpd": 0.0369,
+    "customer_total_exposure": 0.0262,
+    "bureau_max_dpd": 0.0247,
+    "interest_rate_pct": 0.0219,
+    "emi_to_income": 0.0202,
+    "loan_amount": 0.0176,
+    "years_at_residence": 0.0158,
+    "rep_dpd_trend": 0.0111
+  },
+  "top_features_shap": {
+    "annual_income": 0.1668,
+    "years_employed": 0.1367,
+    "rep_n_delinquent": 0.1246,
+    "age": 0.1188,
+    "bureau_mean_dpd": 0.0955,
+    "rep_mean_dpd": 0.0601,
+    "bureau_max_dpd": 0.0543,
+    "rep_max_dpd": 0.051,
+    "customer_total_exposure": 0.0459,
+    "loan_to_income": 0.0438,
+    "interest_rate_pct": 0.0432,
+    "years_at_residence": 0.0373,
+    "emi_to_income": 0.0306,
+    "bureau_n_active": 0.0151,
+    "bureau_written_off_share": 0.0134
+  },
+  "top_logistic_coefficients": {
+    "annual_income": -0.232,
+    "years_employed": -0.184,
+    "employment_type_Unemployed": 0.171,
+    "age": -0.166,
+    "bureau_mean_dpd": 0.129,
+    "bureau_n_active": -0.119,
+    "rep_n_delinquent": 0.112,
+    "marital_status_Widowed": -0.106,
+    "rep_n_late": 0.099,
+    "loan_to_income": 0.088,
+    "education_level_Doctorate": 0.087,
+    "bureau_total_sanctioned": 0.085,
+    "disbursal_channel_Mobile App": 0.081,
+    "region_South": 0.079,
+    "bureau_lines_dpd_30plus": 0.075
+  },
+  "fairness_check_test": {
+    "gender": {
+      "Female": {
+        "loans": 1266,
+        "observed_default_rate": 0.15639810426540285,
+        "mean_pd": 0.1587804221914952,
+        "high_risk_share": 0.09320695102685624,
+        "auc_within_group": 0.6893679302387168
+      },
+      "Male": {
+        "loans": 1682,
+        "observed_default_rate": 0.1629013079667063,
+        "mean_pd": 0.16350532341022186,
+        "high_risk_share": 0.10939357907253269,
+        "auc_within_group": 0.6794438453881884
+      }
+    },
+    "age_band": {
+      "21-30": {
+        "loans": 766,
+        "observed_default_rate": 0.18798955613577023,
+        "mean_pd": 0.20794831974622585,
+        "high_risk_share": 0.19843342036553524,
+        "auc_within_group": 0.6570929349767775
+      },
+      "31-40": {
+        "loans": 1019,
+        "observed_default_rate": 0.16584887144259078,
+        "mean_pd": 0.1600397848541064,
+        "high_risk_share": 0.0873405299313052,
+        "auc_within_group": 0.6928019491820397
+      },
+      "41-50": {
+        "loans": 831,
+        "observed_default_rate": 0.14560770156438027,
+        "mean_pd": 0.13773398908191203,
+        "high_risk_share": 0.05535499398315283,
+        "auc_within_group": 0.6620183913397741
+      },
+      "51-60": {
+        "loans": 292,
+        "observed_default_rate": 0.1232876712328767,
+        "mean_pd": 0.12056304436185275,
+        "high_risk_share": 0.05136986301369863,
+        "auc_within_group": 0.7195095486111112
+      },
+      "61+": {
+        "loans": 40,
+        "observed_default_rate": 0.05,
+        "mean_pd": 0.10004152244381866,
+        "high_risk_share": 0.0,
+        "auc_within_group": 0.6973684210526315
+      }
+    }
+  }
+}

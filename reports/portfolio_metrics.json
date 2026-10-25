@@ -1,0 +1,78 @@
+{
+  "overall": {
+    "loans": 14685,
+    "customers": 10000,
+    "exposure": 601119531.64,
+    "loan_default_rate": 0.1609805924412666,
+    "customer_default_rate": 0.2159,
+    "exposure_weighted_default_rate": 0.21113784561904672
+  },
+  "mortgage": {
+    "loan_share": 0.09751447054817841,
+    "exposure_share": 0.5231467865002478,
+    "default_rate": 0.24650837988826815,
+    "others_default_rate": 0.15173922885384442,
+    "exposure_weighted_default_rate": 0.26251947100187245,
+    "n": 1432,
+    "lt40k_default_rate": 0.4883720930232558,
+    "lt40k_n": 86,
+    "lt60k_default_rate": 0.3512658227848101,
+    "lt60k_n": 316,
+    "lt60k_exposure": 70949240.41
+  },
+  "income": {
+    "lt40k_default_rate": 0.32441113490364026,
+    "lt40k_n": 934,
+    "lt40k_exposure_share": 0.0637642224757307,
+    "lt40k_defaulted_exposure_share": 0.12456042552870365,
+    "gt100k_default_rate": 0.09522272433828276,
+    "gt100k_n": 3098,
+    "lti_top_quintile_rate": 0.23833844058563158,
+    "lti_bottom_quintile_rate": 0.13210759278175008,
+    "lti_top_quintile_threshold": 0.6294471615720524
+  },
+  "unemployed": {
+    "n": 718,
+    "customers": 494,
+    "exposure_share": 0.049283912534291444,
+    "default_rate": 0.34958217270194986,
+    "others_default_rate": 0.15128517219159449,
+    "customer_default_rate": 0.4311740890688259,
+    "others_customer_default_rate": 0.20471281296023564,
+    "defaulted_exposure_share": 0.1077002496464699
+  },
+  "bureau": {
+    "wo2_n": 763,
+    "wo2_default_rate": 0.23197903014416776,
+    "wo0_n": 8944,
+    "wo0_default_rate": 0.14590787119856888,
+    "wo1_default_rate": 0.17747440273037543,
+    "nobureau_n": 1462,
+    "nobureau_default_rate": 0.17647058823529413,
+    "bureau_dpd30_60_rate": 0.2058623040218132,
+    "bureau_dpd_le30_rate": 0.13266024888471473
+  },
+  "age": {
+    "young_n": 3648,
+    "young_exposure_share": 0.263212622984203,
+    "young_default_rate": 0.20751096491228072,
+    "old_default_rate": 0.07194244604316546,
+    "old_n": 278,
+    "young_lt40k_rate": 0.34048257372654156,
+    "young_lt40k_n": 373,
+    "young_gt100k_rate": 0.1111111111111111,
+    "young_gt100k_n": 486,
+    "mid_41_50_rate": 0.137612448334549
+  },
+  "region": {
+    "min_rate": 0.14995678478824545,
+    "max_rate": 0.1686111111111111,
+    "south_mortgage_rate": 0.27296587926509186,
+    "central_mortgage_rate": 0.21311475409836064
+  },
+  "vintage": {
+    "min_rate": 0.14858096828046743,
+    "max_rate": 0.17695136902329384,
+    "max_year": 2021
+  }
+}
