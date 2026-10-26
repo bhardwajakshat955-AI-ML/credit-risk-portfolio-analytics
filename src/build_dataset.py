@@ -165,7 +165,10 @@ def write_data_quality_report(summary: dict, df: pd.DataFrame) -> None:
               "- Exposure definition used throughout: `loan_amount` (originated amount). `rep_balance_m12` is shown as the "
               "outstanding balance at the prediction point where relevant. See assumption A6."]
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
-    (REPORTS_DIR / "data_quality_report.md").write_text("\n".join(lines))
+    (REPORTS_DIR / "data_quality_report.md").write_text(
+    "\n".join(lines),
+    encoding="utf-8"
+)
 
 
 def write_feature_dictionary() -> None:
@@ -181,7 +184,10 @@ def write_feature_dictionary() -> None:
               "`customer_since` (inconsistent with origination dates), all `col_*` collections features (post-decision "
               "information with unreliable dates), `rep_balance_m1`/`rep_total_*` (redundant with loan_amount and paid_ratio), "
               "and identifiers."]
-    (REPORTS_DIR / "feature_dictionary.md").write_text("\n".join(lines))
+    (REPORTS_DIR / "feature_dictionary.md").write_text(
+    "\n".join(lines),
+    encoding="utf-8"
+)
 
 
 if __name__ == "__main__":

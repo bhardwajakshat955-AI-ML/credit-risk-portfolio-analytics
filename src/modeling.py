@@ -396,7 +396,10 @@ def write_model_report(r: dict) -> None:
           "a fairness check, independent model-validation sign-off and a documented rollback plan (previous model kept deployable) "
           "before it replaces the production scorer. **In this assignment** only the one-off validation above exists; no monitoring "
           "job is implemented because there is no post-deployment data to monitor."]
-    (REPORTS_DIR / "model_evaluation.md").write_text("\n".join(L))
+    (REPORTS_DIR / "model_evaluation.md").write_text(
+    "\n".join(L),
+    encoding="utf-8"
+)
 
 
 if __name__ == "__main__":

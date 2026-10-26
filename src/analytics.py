@@ -278,7 +278,10 @@ def write_findings(df: pd.DataFrame, profiles: dict[str, pd.DataFrame], ins: dic
           "regional mortgage cells are 170-390 loans, so this is suggestive rather than conclusive.",
           "- Disbursal channel and city tier show differences of under two percentage points.",
           "- The number of loans a customer holds (1-3) barely moves the default rate (15.7% → 16.8%)."]
-    (REPORTS_DIR / "portfolio_findings.md").write_text("\n".join(L))
+    (REPORTS_DIR / "portfolio_findings.md").write_text(
+    "\n".join(L),
+    encoding="utf-8"
+)
 
 
 def run() -> None:
